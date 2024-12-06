@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  background-color: dimgray;
+  color: white;
+}
+
+.error {
+  color: indianred;
+}
+
+ul {
+  li {
+    a, a:visited {
+      color: aqua;
+      text-decoration: none;
+
+      &.active {
+        text-decoration: underline;
+      }
+    }
+    font-size: 1.35em;
+  }
+}

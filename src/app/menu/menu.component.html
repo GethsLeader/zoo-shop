@@ -1,0 +1,11 @@
+<h2 class="header">Menu</h2>
+<ng-container *ngIf="errors.length">
+  <div *ngFor="let error of errors" class="error">
+    Error {{ error.message }}
+  </div>
+</ng-container>
+<ul *ngIf="menuData$ | async">
+  <li *ngFor="let item of (menuData$ | async)">
+    <a [href]="item.url" [ngClass]="{ active: menuUrl === item.url }">{{ item.title }}</a>
+  </li>
+</ul>
