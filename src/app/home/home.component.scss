@@ -1,0 +1,12 @@
+.categories {
+  li {
+    cursor: pointer;
+
+    span {
+      &.selected {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+    }
+  }
+}

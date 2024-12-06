@@ -4,15 +4,22 @@
 <div *ngIf="loading$ | async">Loading...</div>
 <div *ngIf="(zooShop$ | async) as zooShop">
   <ul class="categories">
-    <li *ngFor="let category of zooShop.categories">
-      {{ category.title }}
+    <li *ngFor="let category of zooShop.categories" (click)="selectCategory(category)">
+      <span [class.selected]="selectedCategory === category.id">{{ category.title }}</span>
     </li>
   </ul>
-  <ul class="goods">
-    <li *ngFor="let animal of zooShop.animals">
-      <div [style.color]="$any(animal).color">name: {{ animal.name }}</div>
-      <div>age: {{$any(animal).age}}</div>
-      <div>weight: {{$any(animal).weight}}</div>
-    </li>
-  </ul>
+  <div class="goods">
+    <div *ngIf="!selectedCategory; else goods">Select at last one category.</div>
+    <ng-template #goods>
+      <ul>
+        <ng-container *ngFor="let animal of zooShop.animals">
+          <li *ngIf="animal.category === selectedCategory">
+            <div [style.color]="$any(animal).color">name: {{ animal.name }}</div>
+            <div>age: {{ $any(animal).age }}</div>
+            <div>weight: {{ $any(animal).weight }}</div>
+          </li>
+        </ng-container>
+      </ul>
+    </ng-template>
+  </div>
 </div>

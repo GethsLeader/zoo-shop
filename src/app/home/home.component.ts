@@ -1,6 +1,6 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Animals, Categories, ZooShop} from "./zoo-shop.types";
+import {Animals, Categories, Category, ZooShop} from "./zoo-shop.types";
 import {delay, forkJoin, map, Observable, shareReplay, startWith} from "rxjs";
 import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
 
@@ -20,12 +20,14 @@ export class HomeComponent implements OnInit {
 
   loading$: Observable<boolean> | null;
   zooShop$: Observable<ZooShop> | null;
+  selectedCategory: string | null;
 
   constructor() {
     this._httpClient = inject(HttpClient);
 
     this.loading$ = null;
     this.zooShop$ = null;
+    this.selectedCategory = null;
   }
 
   ngOnInit() {
@@ -35,6 +37,10 @@ export class HomeComponent implements OnInit {
     );
 
     this.zooShop$ = this._getZooShop();
+  }
+
+  selectCategory(category: Category) {
+    this.selectedCategory = category.id;
   }
 
   private _getZooShop() {
@@ -50,6 +56,6 @@ export class HomeComponent implements OnInit {
 
   private _getAnimals(): Observable<Animals> {
     // delay to simulate network lag
-    return this._httpClient.get<Animals>('/assets/api/store/goods.json').pipe(delay(3000));
+    return this._httpClient.get<Animals>('/assets/api/store/goods.json').pipe(delay(2000));
   }
 }
