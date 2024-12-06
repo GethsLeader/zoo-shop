@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Catfield",
+    "category": "cats",
+    "color": "orange",
+    "weight": 10.0,
+    "size": 4
+  },
+  {
+    "id": 2,
+    "name": "Block",
+    "category": "cats",
+    "color": "black",
+    "weight": 7.0,
+    "age": 2
+  },
+  {
+    "id": 3,
+    "name": "Puffer",
+    "category": "dogs",
+    "color": "gray",
+    "weight": 14.0,
+    "age": 5
+  }
+]

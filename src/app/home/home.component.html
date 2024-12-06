@@ -1,1 +1,18 @@
-<h1>Home!</h1>
+<h1>Home</h1>
+<h2>Zoo Shop</h2>
+
+<div *ngIf="loading$ | async">Loading...</div>
+<div *ngIf="(zooShop$ | async) as zooShop">
+  <ul class="categories">
+    <li *ngFor="let category of zooShop.categories">
+      {{ category.title }}
+    </li>
+  </ul>
+  <ul class="goods">
+    <li *ngFor="let animal of zooShop.animals">
+      <div [style.color]="$any(animal).color">name: {{ animal.name }}</div>
+      <div>age: {{$any(animal).age}}</div>
+      <div>weight: {{$any(animal).weight}}</div>
+    </li>
+  </ul>
+</div>
