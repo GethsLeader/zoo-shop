@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {AsyncPipe, NgClass, NgForOf, NgIf} from "@angular/common";
-import {HttpClientModule, HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {catchError, filter, Observable, of} from "rxjs";
 import {MenuData} from "./menu.component.types";
 import {NavigationEnd, Router} from "@angular/router";
@@ -14,7 +14,6 @@ import {NavigationEnd, Router} from "@angular/router";
     AsyncPipe,
     NgClass
   ],
-  providers: [HttpClientModule],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })

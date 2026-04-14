@@ -1,8 +1,8 @@
-import {Component, inject, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Animals, Categories, Category, ZooShop} from "./zoo-shop.types";
-import {delay, forkJoin, map, Observable, shareReplay, startWith} from "rxjs";
-import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
+import { Component, inject, OnInit } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { Animals, Categories, Category, ZooShop } from "./zoo-shop.types";
+import { delay, forkJoin, map, Observable, shareReplay, startWith } from "rxjs";
+import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
 
 @Component({
   selector: 'app-home',
